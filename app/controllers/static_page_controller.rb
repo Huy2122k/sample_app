@@ -6,6 +6,5 @@ class StaticPageController < ApplicationController
   end
 
   def about
-    return render html: 'about'
   end
 end
