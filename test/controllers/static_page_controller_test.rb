@@ -11,7 +11,7 @@ class StaticPageControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
   test "should get help" do
-    get helf_path
+    get help_path
     assert_response :success
   end
   test "should get contact" do
