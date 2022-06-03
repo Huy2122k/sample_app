@@ -9,12 +9,13 @@ class UsersController < ApplicationController
   end
   def create
     @user = User.new(user_params)
-    debugger
-
     if @user.save
       # Handle a successful save.
+      flash[:success] = "Welcome to the Sample App!"
+      redirect_to @user
     else
-      render 'new'
+      # binding.pry
+      render :new, status: 422
     end
   end
 
