@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     # Log the user in and redirect to the user's show page.
       # flash[:success] = 'Invalid email/password combination'
       log_in user
-      remember user
+      params[:session][:remember_me] == '1' ? remember(user) : forget(user)
       redirect_to user
     else
     # Create an error message.
@@ -16,8 +16,7 @@ class SessionsController < ApplicationController
     end
   end
   def destroy
-   log_out if logged_in?
- 
-   redirect_to root_url
+    log_out if logged_in?
+    redirect_to root_url
   end
 end
