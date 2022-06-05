@@ -1,1 +1,8 @@
-<h1> here is index of user</h1>
+<% provide(:title, 'All users') %>
+<h1>All users</h1>
+<ul class="users">
+  <%= render @users %>
+</ul>
+<div style="text-align:center">
+  <%= will_paginate %>
+</div> 
