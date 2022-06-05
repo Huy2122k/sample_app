@@ -35,3 +35,5 @@ db/test.*
 /config/master.key
 
 node_modules/
+# Ignore application configuration
+/config/application.yml
