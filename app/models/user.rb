@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   attr_accessor :remember_token, :activation_token, :reset_token
-  before_save {self.email = email.downcase }
+  before_save :downcase_email
   before_create :create_activation_digest
   validates :name, presence: true, length: { maximum: 50 }
   validates :email, presence: true, length: { maximum: 150 }, 
@@ -56,6 +56,9 @@ class User < ApplicationRecord
     reset_sent_at < 2.hours.ago
   end
   private
+    def downcase_email
+      self.email = email.downcase
+    end
     # Creates and assigns the activation token and digest.
     def create_activation_digest
       self.activation_token = User.new_token
