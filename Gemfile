@@ -47,6 +47,10 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
 gem 'figaro'
+
+gem 'image_processing'
+
+gem 'active_storage_validations', '0.8.2'
 # Use Sass to process CSS
 # gem "sassc-rails"
 
