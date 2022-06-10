@@ -1,8 +1,9 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
+  # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :confirmable
   has_many :microposts, dependent: :destroy
   has_many :active_relationships, class_name: "Relationship",
                                   foreign_key: "follower_id",
@@ -19,8 +20,8 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 150 }, 
             format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }, 
             uniqueness: true
-  has_secure_password
-  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
+  # has_secure_password
+  # validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
   def remember
     self.remember_token = User.new_token
