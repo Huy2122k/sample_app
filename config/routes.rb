@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'sessions/new'
   # Defines the root path route ("/")
   root 'static_page#home'
