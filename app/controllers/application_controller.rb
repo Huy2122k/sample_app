@@ -1,13 +1,14 @@
 class ApplicationController < ActionController::Base
-  include SessionsHelper
+  # include SessionsHelper
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :authenticate_user!
   # def hello
   #   render html: 'hello'
   # end
   private
   # Confirms a logged-in user.
   def logged_in_user
-    unless logged_in?
+    unless user_signed_in?
       store_location
       flash[:danger] = "Please log in."
       redirect_to login_url
