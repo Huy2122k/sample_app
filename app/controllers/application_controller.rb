@@ -5,6 +5,9 @@ class ApplicationController < ActionController::Base
   #   render html: 'hello'
   # end
   private
+  def current_user?(user)
+    user && user == current_user
+  end
   # Confirms a logged-in user.
   def logged_in_user
     unless user_signed_in?
