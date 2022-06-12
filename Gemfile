@@ -50,6 +50,7 @@ gem 'figaro'
 gem 'devise'
 gem "cancancan"
 gem "rolify"
+gem 'ransack'
 gem 'image_processing'
 
 gem 'active_storage_validations', '0.8.2'

@@ -14,6 +14,11 @@
     </aside>
     <div class="col-md-8">
       <h3>Micropost Feed</h3>
+      <%= search_form_for @q do |f| %>
+        <%= f.label :content_start %>
+        <%= f.search_field :content_start %>
+        <%= f.submit %>
+      <% end %>
       <%= render 'shared/feed' %>
     </div>
   </div>
